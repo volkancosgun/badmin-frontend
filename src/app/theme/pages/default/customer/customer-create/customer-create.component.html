@@ -1,0 +1,209 @@
+<div class="m-subheader">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title m-subheader__title--separator">
+                Müşteri
+            </h3>
+            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                <li class="m-nav__item m-nav__item--home">
+                    <a href="#" class="m-nav__link m-nav__link--icon">
+                        <i class="m-nav__link-icon la la-user-plus"></i>
+                    </a>
+                </li>
+
+                <!-- <li class="m-nav__separator">
+                    -
+                </li> -->
+
+                <li class="m-nav__item">
+                    <a routerLink="/customer/create" class="m-nav__link">
+                        <span class="m-nav__link-text">
+                                Yeni müşteri oluştur.
+                            </span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content">
+    <div class="m-portlet">
+        <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+                <div class="m-portlet__head-title">
+                    <span class="m-portlet__head-icon m--hide">
+								<i class="la la-gear"></i>
+							</span>
+                    <h3 class="m-portlet__head-text">
+                        Genel Bilgiler
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <!--begin::Form-->
+        <form [formGroup]="form" (submit)="onSubmit()" class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed">
+            <div class="m-portlet__body">
+                <div class="form-group m-form__group row">
+                    <div class="col-lg-4" [ngClass]="{'has-danger':form.controls.group_id.invalid && form.controls.group_id.touched}">
+                        <label class="form-control-label">Müşteri Grubu:</label>
+                        <select formControlName="group_id" class="form-control">
+                            <option *ngFor="let item of customer_groups" [value]="item.id">{{item.name}}</option>
+                        </select>
+                        <div class="form-control-feedback" *ngIf="form.controls.group_id.invalid && form.controls.group_id.touched">
+                            {{'FORM.R' | translate }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group m-form__group row">
+                    <div class="col-lg-4" [ngClass]="{'has-danger':form.controls.name.invalid && form.controls.name.touched}">
+                        <label class="form-control-label">Adı:</label>
+                        <input type="text" formControlName="name" class="form-control m-input" placeholder="Müşteri Adını giriniz" capitalize>
+                        <div class="form-control-feedback" *ngIf="form.controls.name.invalid && form.controls.name.touched">
+                            {{'FORM.R' | translate }}
+                        </div>
+                    </div>
+                    <div class="col-lg-4" [ngClass]="{'has-danger':form.controls.sur_name.invalid && form.controls.sur_name.touched}">
+                        <label class="form-control-label">Soyadı:</label>
+                        <input type="text" formControlName="sur_name" class="form-control m-input" placeholder="Müşteri Soyadını giriniz" uppercase>
+                        <div class="form-control-feedback" *ngIf="form.controls.sur_name.invalid && form.controls.sur_name.touched">
+                            {{'FORM.R' | translate}}
+                        </div>
+                    </div>
+                    <div class="col-lg-4" [ngClass]="{'has-danger':form.controls.email.invalid && form.controls.email.touched}">
+                        <label class="form-control-label">Email:</label>
+                        <input type="email" formControlName="email" class="form-control m-input" placeholder="Müşteri Email giriniz">
+                        <div class="form-control-feedback" *ngIf="form.controls.email.invalid && form.controls.email.touched">
+                            {{'FORM.EMAIL' | translate}}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group m-form__group row">
+                    <div class="col-lg-4" [ngClass]="{'has-danger':!errorPhone && form.controls.phone.touched && form.controls.phone.value}">
+                        <label class="form-control-label">Telefon:</label>
+                        <input ng2TelInput formControlName="phone" class="form-control m-input" [ng2TelInputOptions]="{initialCountry: 'de'}" (hasError)="hasErrorPhone($event)" (ng2TelOutput)="getNumberPhone($event)" />
+                        <div class="form-control-feedback" *ngIf="!errorPhone && form.controls.phone.touched && form.controls.phone.value">
+                            {{'FORM.PHONE' | translate}}
+                        </div>
+
+                    </div>
+                    <div class="col-lg-4" [ngClass]="{'has-danger':!errorPhoneMobil && form.controls.phone_mobil.touched && form.controls.phone_mobil.value}">
+                        <label class="form-control-label">Telefon (mobil):</label>
+                        <input ng2TelInput formControlName="phone_mobil" class="form-control m-input" [ng2TelInputOptions]="{initialCountry: 'de'}" (hasError)="hasErrorPhoneMobil($event)" (ng2TelOutput)="getNumberPhoneMobil($event)" />
+                        <div class="form-control-feedback" *ngIf="!errorPhoneMobil && form.controls.phone_mobil.touched && form.controls.phone_mobil.value">
+                            {{'FORM.PHONE' | translate}}
+                        </div>
+                    </div>
+                    <div class="col-lg-4" [ngClass]="{'has-danger':!errorFax && form.controls.fax.touched && form.controls.fax.value}">
+                        <label class="form-control-label">Fax:</label>
+                        <input ng2TelInput formControlName="fax" class="form-control m-input" [ng2TelInputOptions]="{initialCountry: 'de'}" (hasError)="hasErrorFax($event)" (ng2TelOutput)="getNumberFax($event)" />
+                        <div class="form-control-feedback" *ngIf="!errorFax && form.controls.fax.touched && form.controls.fax.value">
+                            {{'FORM.FAX' | translate}}
+                        </div>
+                    </div>
+
+                    <!-- <div class="col-lg-4">
+                        <label>
+									Address:
+								</label>
+                        <div class="m-input-icon m-input-icon--right">
+                            <input type="text" class="form-control m-input" placeholder="Örn: Köln">
+                            <span class="m-input-icon__icon m-input-icon__icon--right">
+										<span>
+											<i class="la la-map-marker"></i>
+										</span>
+                            </span>
+                        </div>
+                        <span class="m-form__help">
+									Lütfen müşteri adresini giriniz
+								</span>
+                    </div> -->
+                </div>
+                <div class="form-group m-form__group row">
+                    <div class="col-lg-12">
+                        <label class="form-control-label">
+                                            Konum Bul:
+                                        </label>
+                        <div class="m-input-icon m-input-icon--right">
+                            <input placeholder="{{'INPUT.SEARCH_MAP' | translate}}" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control m-input" (onPlaceChange)="placeChanged($event)" mapsearch>
+                            <span class="m-input-icon__icon m-input-icon__icon--right">
+                                                <span>
+                                                    <i class="la la-map-marker"></i>
+                                                </span>
+                            </span>
+                        </div>
+                        <!-- <span class="m-form__help">Müşteri konumunu bulun</span> -->
+                    </div>
+
+                    <!-- <div class="col-lg-4">
+                        <label class="">
+									User Group:
+								</label>
+                        <div class="m-radio-inline">
+                            <label class="m-radio m-radio--solid">
+										<input type="radio" name="example_2" checked value="2">
+										Sales Person
+										<span></span>
+									</label>
+                            <label class="m-radio m-radio--solid">
+										<input type="radio" name="example_2" value="2">
+										Customer
+										<span></span>
+									</label>
+                        </div>
+                        <span class="m-form__help">
+									Please select user group
+								</span>
+                    </div> -->
+                </div>
+
+                <div class="form-group m-form__group row">
+                    <div class="col-lg-4">
+                        <label class="form-control-label">Adres:</label>
+                        <input formControlName="adr_address" type="text" class="form-control m-input" placeholder="Müşteri açık adresi...">
+                    </div>
+                    <div class="col-lg-4">
+                        <label class="form-control-label">Ülke:</label>
+                        <input formControlName="adr_country" type="text" class="form-control m-input" placeholder="Ülke">
+                    </div>
+                    <div class="col-lg-4">
+                        <label class="form-control-label">Şehir:</label>
+                        <input formControlName="adr_city" type="text" class="form-control m-input" placeholder="Şehir">
+                    </div>
+                </div>
+
+                <div class="form-group m-form__group row">
+                    <div class="col-lg-4">
+                        <label class="form-control-label">Eyalet:</label>
+                        <input formControlName="adr_locality" type="text" class="form-control m-input" placeholder="Eyalet">
+                    </div>
+                    <div class="col-lg-4">
+                        <label class="form-control-label">Posta Kodu:</label>
+                        <input formControlName="adr_postal_code" type="text" class="form-control m-input" placeholder="Posta Kodu">
+                    </div>
+                    <div class="col-lg-4">
+                        <label class="form-control-label">No:</label>
+                        <input formControlName="adr_street_number" type="text" class="form-control m-input" placeholder="Sokak/Cadde numarası">
+                    </div>
+                </div>
+
+            </div>
+            <div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">
+                <div class="m-form__actions m-form__actions--solid">
+                    <div class="row">
+
+                        <button type="submit" [disabled]="loading || form.invalid" class="btn btn-primary">
+										{{'FORM.SAVE' | translate}}
+									</button>
+                        <button type="reset" class="btn btn-secondary">
+										{{'FORM.CANCEL' | translate}}
+									</button>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!--end::Form-->
+    </div>
+</div>

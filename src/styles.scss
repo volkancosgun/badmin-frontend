@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/themes/bootstrap.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+@import 'intl-tel-input/build/css/intlTelInput.min.css';
+.datatable-row-wrapper:hover {
+    z-index: 12; // higher than other rows
+}
+
+.datatable-body-cell {
+    overflow-x: visible !important;
+}
+
+.datatable-body {
+    overflow: auto;
+}
+
+.intl-tel-input {
+    position: relative;
+    display: block;
+}
+
+agm-map {
+    height: 300px;
+}

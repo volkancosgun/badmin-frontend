@@ -1,0 +1,92 @@
+<div class="m-subheader">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title m-subheader__title--separator">
+                Müşteri Grubu Oluştur
+            </h3>
+            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                <li class="m-nav__item m-nav__item--home">
+                    <a href="#" routerLink="/customer/group/create" class="m-nav__link m-nav__link--icon">
+                        <i class="m-nav__link-icon la la-users"></i>
+                    </a>
+                </li>
+
+                <!-- <li class="m-nav__separator">
+                    >
+                </li> -->
+
+                <!-- <li class="m-nav__item">
+                    <span class="m-nav__link-text">Yeni müşteri grubu oluşturun.</span>
+                </li> -->
+
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content">
+    <!--begin::Portlet-->
+    <div class="m-portlet">
+        <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+                <div class="m-portlet__head-title">
+                    <span class="m-portlet__head-icon m--hide">
+                    <i class="la la-gear"></i>
+                </span>
+                    <h3 class="m-portlet__head-text">
+                        Genel Bilgiler
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <!--begin::Form-->
+        <form [formGroup]="form" (submit)="onSubmit()" class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed">
+            <div class="m-portlet__body">
+                <div class="form-group m-form__group row" [ngClass]="{'has-danger': form.controls.name.invalid && form.controls.name.touched}">
+                    <label class="form-contorl-label col-lg-2 col-form-label">
+                    Grup Adı<em class="text-danger">*</em> :
+                </label>
+                    <div class="col-lg-6">
+                        <input type="text" name="name" formControlName="name" class="form-control m-input" placeholder="Grup adını giriniz" autocomplete="off" uppercase>
+                        <div class="form-control-feedback" *ngIf="form.controls.name.invalid && form.controls.name.touched">
+                            {{ 'FORM.R' | translate }}
+                        </div>
+
+                        <span class="m-form__help">
+                        Müşteri grubuna bir ad tanımlayın
+                    </span>
+                    </div>
+                </div>
+                <div class="form-group m-form__group row">
+                    <label class="col-lg-2 col-form-label">
+                    Açıklama :
+                </label>
+                    <div class="col-lg-6">
+                        <textarea name="description" formControlName="description" class="form-control m-input" id="exampleTextarea" rows="3" placeholder="Grup açıklaması giriniz"></textarea>
+                        <span class="m-form__help">
+                        Müşteri grubuna (isteğe bağlı) bir açıklama tanımlayın
+                    </span>
+                    </div>
+                </div>
+            </div>
+            <div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">
+                <div class="m-form__actions m-form__actions--solid">
+                    <div class="row">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-6">
+                            <button [disabled]="loading || form.invalid" type="submit" class="btn btn-brand">
+                            {{'FORM.SAVE' | translate}}
+                        </button>
+                            <a href="#" routerLink="/customer/group/list" class="btn btn-secondary">
+                            {{'FORM.CANCEL' | translate}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!--end::Form-->
+    </div>
+    <!--end::Portlet-->
+</div>
+<!-- END: Content -->

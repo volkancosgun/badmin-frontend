@@ -1,0 +1,489 @@
+<!-- BEGIN: Subheader -->
+<div class="m-subheader" appunwraptag="">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title">
+                Müşteri Detayları
+            </h3>
+        </div>
+        <!-- <div>
+            <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" m-dropdown-toggle="hover" aria-expanded="true">
+                <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
+                    <i class="la la-plus m--hide"></i>
+                    <i class="la la-ellipsis-h"></i>
+                </a>
+                <div class="m-dropdown__wrapper">
+                    <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                    <div class="m-dropdown__inner">
+                        <div class="m-dropdown__body">
+                            <div class="m-dropdown__content">
+                                <ul class="m-nav">
+                                    <li class="m-nav__section m-nav__section--first m--hide">
+                                        <span class="m-nav__section-text">
+                                                Quick Actions
+                                            </span>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-share"></i>
+                                            <span class="m-nav__link-text">
+                                                    Activity
+                                                </span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-chat-1"></i>
+                                            <span class="m-nav__link-text">
+                                                    Messages
+                                                </span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-info"></i>
+                                            <span class="m-nav__link-text">
+                                                    FAQ
+                                                </span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-lifebuoy"></i>
+                                            <span class="m-nav__link-text">
+                                                    Support
+                                                </span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__separator m-nav__separator--fit"></li>
+                                    <li class="m-nav__item">
+                                        <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
+                                                Submit
+                                            </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content">
+    <div class="row">
+        <div class="col-xl-3 col-lg-4">
+            <div class="m-portlet m-portlet--full-height">
+                <div class="m-portlet__body">
+                    <div class="m-card-profile">
+                        <div class="m-card-profile__title m--hide">
+                            Müşteri
+                        </div>
+                        <div class="m-card-profile__details">
+                            <span class="m-card-profile__name">
+                                    {{item?.name}} {{item?.sur_name}}
+                                </span>
+                            <a href="" class="m-card-profile__email m-link">
+                                <small>{{item?.email || '-'}}</small>
+                            </a>
+                        </div>
+                    </div>
+                    <ul class="m-nav m-nav--hover-bg m-portlet-fit--sides">
+                        <li class="m-nav__separator m-nav__separator--fit"></li>
+                        <li class="m-nav__section m--hide">
+                            <span class="m-nav__section-text">
+                                    Section
+                                </span>
+                        </li>
+                        <li class="m-nav__item">
+                            <a href="#" class="m-nav__link">
+                                <i class="m-nav__link-icon flaticon-profile-1"></i>
+                                <span class="m-nav__link-title">
+                                        <span class="m-nav__link-wrap">
+                                            <span class="m-nav__link-text">
+                                                Siparişler
+                                            </span>
+                                <span class="m-nav__link-badge">
+                                                <span class="m-badge m-badge--success">
+                                                    0
+                                                </span>
+                                </span>
+                                </span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="m-nav__item">
+                            <a href="#" class="m-nav__link">
+                                <i class="m-nav__link-icon flaticon-chat-1"></i>
+                                <span class="m-nav__link-title">
+                                        <span class="m-nav__link-wrap">
+                                            <span class="m-nav__link-text">
+                                                Mesajlar
+                                            </span>
+                                <span class="m-nav__link-badge">
+                                                <span class="m-badge m-badge--success">
+                                                    0
+                                                </span>
+                                </span>
+                                </span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="m-nav__item">
+                            <a href="#" class="m-nav__link">
+                                <i class="m-nav__link-icon flaticon-notes"></i>
+                                <span class="m-nav__link-title">
+                                        <span class="m-nav__link-wrap">
+                                            <span class="m-nav__link-text">
+                                                Faturalar
+                                            </span>
+                                <span class="m-nav__link-badge">
+                                                <span class="m-badge m-badge--success">
+                                                    0
+                                                </span>
+                                </span>
+                                </span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="m-nav__item">
+                            <a href="#" class="m-nav__link">
+                                <i class="m-nav__link-icon flaticon-time-3"></i>
+                                <span class="m-nav__link-title">
+                                        <span class="m-nav__link-wrap">
+                                            <span class="m-nav__link-text">
+                                                Notlar
+                                            </span>
+                                <span class="m-nav__link-badge">
+                                                <span class="m-badge m-badge--success">
+                                                    0
+                                                </span>
+                                </span>
+                                </span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="m-portlet__body-separator"></div>
+                    <div class="m-widget1 m-widget1--paddingless">
+                        <div class="m-widget1__item">
+                            <div class="row m-row--no-padding align-items-center">
+                                <div class="col">
+                                    <h3 class="m-widget1__title">
+                                        Telefon
+                                    </h3>
+                                    <span class="m-widget1__desc">
+                                            Sabit
+                                        </span>
+                                </div>
+                                <div class="col m--align-right">
+                                    <span class="m-widget1__number m--font-brand">
+                                            {{item?.phone || '-'}}
+                                        </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-widget1__item">
+                            <div class="row m-row--no-padding align-items-center">
+                                <div class="col">
+                                    <h3 class="m-widget1__title">
+                                        Telefon
+                                    </h3>
+                                    <span class="m-widget1__desc">
+                                                Mobil
+                                            </span>
+                                </div>
+                                <div class="col m--align-right">
+                                    <span class="m-widget1__number m--font-brand">
+                                                {{item?.phone_mobil || '-'}}
+                                            </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-widget1__item">
+                            <div class="row m-row--no-padding align-items-center">
+                                <div class="col">
+                                    <h3 class="m-widget1__title">
+                                        Fax
+                                    </h3>
+                                    <span class="m-widget1__desc">
+                                                    Genel
+                                                </span>
+                                </div>
+                                <div class="col m--align-right">
+                                    <span class="m-widget1__number m--font-brand">
+                                                    {{item?.fax || '-'}}
+                                                </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-9 col-lg-8">
+            <div class="m-portlet m-portlet--full-height m-portlet--tabs">
+                <div class="m-portlet__head">
+                    <div class="m-portlet__head-tools">
+                        <ul class="nav nav-tabs m-tabs m-tabs-line   m-tabs-line--left m-tabs-line--primary" role="tablist">
+                            <li class="nav-item m-tabs__item">
+                                <a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_user_profile_tab_1" role="tab">
+                                    <i class="flaticon-share m--hide"></i> Müşteri Düzenle
+                                </a>
+                            </li>
+                            <li class="nav-item m-tabs__item">
+                                <a class="nav-link m-tabs__link" data-toggle="tab" href="#m_user_profile_tab_2" role="tab">
+                                        Ayarlar
+                                    </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="m-portlet__head-tools">
+                        <ul class="m-portlet__nav">
+                            <li class="m-portlet__nav-item m-portlet__nav-item--last">
+                                <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" m-dropdown-toggle="hover" aria-expanded="true">
+                                    <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
+                                        <i class="la la-gear"></i>
+                                    </a>
+                                    <div class="m-dropdown__wrapper">
+                                        <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                                        <div class="m-dropdown__inner">
+                                            <div class="m-dropdown__body">
+                                                <div class="m-dropdown__content">
+                                                    <ul class="m-nav">
+                                                        <li class="m-nav__section m-nav__section--first">
+                                                            <span class="m-nav__section-text">
+                                                                    Hızlı İşlemler
+                                                                </span>
+                                                        </li>
+                                                        <li class="m-nav__item">
+                                                            <a href="" class="m-nav__link">
+                                                                <i class="m-nav__link-icon flaticon-share"></i>
+                                                                <span class="m-nav__link-text">
+                                                                        Sipariş Oluştur
+                                                                    </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="m-nav__item">
+                                                            <a href="" class="m-nav__link">
+                                                                <i class="m-nav__link-icon flaticon-chat-1"></i>
+                                                                <span class="m-nav__link-text">
+                                                                        Mesaj Gönder
+                                                                    </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="m-nav__section m--hide">
+                                                            <span class="m-nav__section-text">
+                                                                    Diğer Linkler
+                                                                </span>
+                                                        </li>
+                                                        <li class="m-nav__item m--hide">
+                                                            <a href="" class="m-nav__link">
+                                                                <i class="m-nav__link-icon flaticon-info"></i>
+                                                                <span class="m-nav__link-text">
+                                                                        FAQ
+                                                                    </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="m-nav__item m--hide">
+                                                            <a href="" class="m-nav__link">
+                                                                <i class="m-nav__link-icon flaticon-lifebuoy"></i>
+                                                                <span class="m-nav__link-text">
+                                                                        Support
+                                                                    </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="m-nav__separator m-nav__separator--fit m--hide"></li>
+                                                        <li class="m-nav__item m--hide">
+                                                            <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
+                                                                    Submit
+                                                                </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="m_user_profile_tab_1">
+                        <form [formGroup]="form" (submit)="onSubmit()" class="m-form m-form--fit m-form--label-align-right">
+                            <div class="m-portlet__body">
+                                <div class="form-group m-form__group m--margin-top-10 m--hide">
+                                    <div class="alert m-alert m-alert--default" role="alert">
+                                        The example form below demonstrates common HTML form elements that receive updated styles from Bootstrap with additional classes.
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <div class="col-10 ml-auto">
+                                        <h3 class="m-form__section">
+                                            1. Müşteri Detayları
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <label class="col-2 col-form-label">Müşteri No.</label>
+                                    <div class="col-8">
+                                        <div class="form-control text-info"><strong>{{item?.customer_number}}</strong></div>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row" [ngClass]="{'has-danger':form.controls.group_id.invalid && form.controls.group_id.touched}">
+                                    <label for="label-c-group" class="col-2 col-form-label">Müşteri Grubu</label>
+                                    <div class="col-8">
+                                        <select formControlName="group_id" class="form-control">
+                                            <option *ngFor="let group of groups" [value]="group.id">{{group.name}}</option>
+                                        </select>
+                                        <div class="form-control-feedback" *ngIf="form.controls.group_id.invalid && form.controls.group_id.touched">
+                                            {{'FORM.R' | translate }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row" [ngClass]="{'has-danger': form.controls.name.invalid && form.controls.name.touched || form.controls.sur_name.invalid && form.controls.sur_name.touched}">
+                                    <label class="col-2 col-form-label">
+                                            Adı, Soyadı
+                                        </label>
+                                    <div class="col-4">
+                                        <input formControlName="name" class="form-control m-input" type="text" capitalize>
+                                        <div class="form-control-feedback" *ngIf="form.controls.name.invalid && form.controls.name.touched">
+                                            {{'FORM.R' | translate }}
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <input formControlName="sur_name" class="form-control m-input" type="text" uppercase>
+                                        <div class="form-control-feedback" *ngIf="form.controls.sur_name.invalid && form.controls.sur_name.touched">
+                                            {{'FORM.R' | translate}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row" [ngClass]="{'has-danger':form.controls.email.invalid && form.controls.email.touched}">
+                                    <label class="col-2 col-form-label">
+                                            Email
+                                        </label>
+                                    <div class="col-8">
+                                        <input formControlName="email" class="form-control m-input" type="text">
+                                        <div class="form-control-feedback" *ngIf="form.controls.email.invalid && form.controls.email.touched">
+                                            {{'FORM.EMAIL' | translate}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row" [ngClass]="{'has-danger':!errorPhone && form.controls.phone.touched && form.controls.phone.value || !errorPhoneMobil && form.controls.phone_mobil.touched && form.controls.phone_mobil.value}">
+                                    <label class="col-2 col-form-label">
+                                            Telefon
+                                        </label>
+                                    <div class="col-4">
+                                        <input ng2TelInput formControlName="phone" class="form-control m-input" [ng2TelInputOptions]="{initialCountry: 'de'}" (hasError)="hasErrorPhone($event)" (ng2TelOutput)="getNumberPhone($event)" />
+                                        <span class="m-form__help">Sabit telefon numarası</span>
+                                        <div class="form-control-feedback" *ngIf="!errorPhone && form.controls.phone.touched && form.controls.phone.value">
+                                            {{'FORM.PHONE' | translate}}
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <input ng2TelInput formControlName="phone_mobil" class="form-control m-input" [ng2TelInputOptions]="{initialCountry: 'de'}" (hasError)="hasErrorPhoneMobil($event)" (ng2TelOutput)="getNumberPhoneMobil($event)" />
+                                        <span class="m-form__help">Cep telefon numarası</span>
+                                        <div class="form-control-feedback" *ngIf="!errorPhoneMobil && form.controls.phone_mobil.touched && form.controls.phone_mobil.value">
+                                            {{'FORM.PHONE' | translate}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row" [ngClass]="{'has-danger':!errorFax && form.controls.fax.touched && form.controls.fax.value}">
+                                    <label class="col-2 col-form-label">
+                                                Fax
+                                            </label>
+                                    <div class="col-4">
+                                        <input ng2TelInput formControlName="fax" class="form-control m-input" [ng2TelInputOptions]="{initialCountry: 'de'}" (hasError)="hasErrorFax($event)" (ng2TelOutput)="getNumberFax($event)" />
+                                        <span class="m-form__help">Fax numarası</span>
+                                        <div class="form-control-feedback" *ngIf="!errorFax && form.controls.fax.touched && form.controls.fax.value">
+                                            {{'FORM.FAX' | translate}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x"></div>
+                                <div class="form-group m-form__group row">
+                                    <div class="col-10 ml-auto">
+                                        <h3 class="m-form__section">
+                                            2. Adres Bilgileri
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <label class="col-2 col-form-label">Konum Bul</label>
+                                    <div class="col-8">
+                                        <input placeholder="{{'INPUT.SEARCH_MAP' | translate}}" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control m-input" (onPlaceChange)="placeChanged($event)" mapsearch>
+                                        <span class="m-form__help"><span class="text-danger">NOT:</span> Yalnızca adresi değiştirmek gerektiğinde kullanınız.</span>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <label class="col-2 col-form-label">
+                                            Adres
+                                        </label>
+                                    <div class="col-8">
+                                        <input formControlName="adr_address" class="form-control m-input" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <label class="col-2 col-form-label">
+                                                
+                                            </label>
+                                    <div class="col-4">
+                                        <input formControlName="adr_country" class="form-control m-input" type="text">
+                                        <span class="m-form__help">Ülke</span>
+                                    </div>
+                                    <div class="col-4">
+                                        <input formControlName="adr_city" class="form-control m-input" type="text">
+                                        <span class="m-form__help">Şehir</span>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <label class="col-2 col-form-label">
+                                                    
+                                                </label>
+                                    <div class="col-4">
+                                        <input formControlName="adr_locality" class="form-control m-input" type="text">
+                                        <span class="m-form__help">Eyalet</span>
+                                    </div>
+                                    <div class="col-4">
+                                        <input formControlName="adr_postal_code" class="form-control m-input" type="text">
+                                        <span class="m-form__help">Posta Kodu</span>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <label class="col-2 col-form-label"></label>
+                                    <div class="col-4">
+                                        <input formControlName="adr_postal_code" class="form-control m-input" type="text">
+                                        <span class="m-form__help">Sokak/Cadde numarası</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-portlet__foot m-portlet__foot--fit">
+                                <div class="m-form__actions">
+                                    <div class="row">
+                                        <div class="col-2"></div>
+                                        <div class="col-7">
+                                            <button type="submit" [disabled]="loading || form.invalid" class="btn btn-accent m-btn m-btn--air m-btn--custom">
+                                                    {{'FORM.SAVE_CHANGES' | translate}}
+                                                </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane" id="m_user_profile_tab_2">
+                        <div class="m-portlet__body">
+
+                            <div class="alert m-alert m-alert--default" role="alert">
+                                Bu sekme için fiyat ayarları gibi özellikler kullanılabilir.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="m_user_profile_tab_3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

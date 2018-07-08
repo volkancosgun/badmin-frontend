@@ -1,0 +1,164 @@
+<div class="m-subheader">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title m-subheader__title--separator">
+                Müşteri Grubu Listesi
+            </h3>
+            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                <li class="m-nav__item m-nav__item--home">
+                    <a href="#" routerLink="/customer/group/list" class="m-nav__link m-nav__link--icon">
+                        <i class="m-nav__link-icon la la-users"></i>
+                    </a>
+                </li>
+
+                <!-- <li class="m-nav__separator">
+                    >
+                </li> -->
+
+                <!-- <li class="m-nav__item">
+                    <span class="m-nav__link-text">Yeni müşteri grubu oluşturun.</span>
+                </li> -->
+
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content">
+
+    <div class="m-portlet m-portlet--mobile">
+        <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+                <div class="m-portlet__head-title">
+                    <h3 class="m-portlet__head-text">
+                        Müşteri Grupları
+                    </h3>
+                </div>
+            </div>
+            <div class="m-portlet__head-tools">
+                <ul class="m-portlet__nav">
+                    <li class="m-portlet__nav-item">
+                        <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" m-dropdown-toggle="hover" aria-expanded="true">
+                            <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
+                                <i class="la la-ellipsis-h m--font-brand"></i>
+                            </a>
+                            <div class="m-dropdown__wrapper">
+                                <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                                <div class="m-dropdown__inner">
+                                    <div class="m-dropdown__body">
+                                        <div class="m-dropdown__content">
+                                            <ul class="m-nav">
+                                                <li class="m-nav__section m-nav__section--first">
+                                                    <span class="m-nav__section-text">
+                                                            HIZLI İŞLEMLER
+                                                        </span>
+                                                </li>
+                                                <li class="m-nav__item">
+                                                    <a href="#" routerLink="/customer/group/create" class="m-nav__link">
+                                                        <i class="m-nav__link-icon flaticon-plus"></i>
+                                                        <span class="m-nav__link-text">
+                                                                Yeni Grup Oluştur
+                                                            </span>
+                                                    </a>
+                                                </li>
+                                                <li class="m-nav__item">
+                                                    <a href="" (click)="onLoad()" class="m-nav__link">
+                                                        <i class="m-nav__link-icon flaticon-refresh"></i>
+                                                        <span class="m-nav__link-text">
+                                                                    Yenile
+                                                                </span>
+                                                    </a>
+                                                </li>
+                                                <li class="m-nav__section m-nav__section--first">
+                                                    <span class="m-nav__section-text">
+                                                                VERİ İŞLEMLERİ
+                                                            </span>
+                                                </li>
+                                                <li class="m-nav__item">
+                                                    <a href="" class="m-nav__link">
+                                                        <i class="m-nav__link-icon flaticon-file"></i>
+                                                        <span class="m-nav__link-text">
+                                                                Dışa Aktar (Excel)
+                                                            </span>
+                                                    </a>
+                                                </li>
+                                                <li class="m-nav__item">
+                                                    <a href="" class="m-nav__link">
+                                                        <i class="m-nav__link-icon flaticon-file"></i>
+                                                        <span class="m-nav__link-text">
+                                                                Dışa Aktar (Text)
+                                                            </span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="m-portlet__body">
+            <!--begin: Search Form -->
+            <div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
+                <div class="row align-items-center">
+                    <div class="col-xl-8 order-2 order-xl-1">
+                        <div class="form-group m-form__group row align-items-center">
+                            <div class="col-md-12">
+                                <div class="m-input-icon m-input-icon--left">
+                                    <input type="text" class="form-control m-input" placeholder="Arama yap..." id="generalSearch" (keyup)="updateFilter($event)">
+                                    <span class="m-input-icon__icon m-input-icon__icon--left">
+                                            <span>
+                                                <i class="la la-search"></i>
+                                            </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 order-1 order-xl-2 m--align-right">
+                        <a href="#" routerLink="/customer/group/create" class="btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
+                            <span>
+                                    <i class="la la-plus"></i>
+                                    <span>
+                                        Yeni Grup Oluştur
+                                    </span>
+                            </span>
+                        </a>
+                        <div class="m-separator m-separator--dashed d-xl-none"></div>
+                    </div>
+                </div>
+            </div>
+            <!--end: Search Form -->
+            <!--begin: Datatable -->
+            <ngx-datatable [rows]="groups" [columnMode]="'force'" [sorts]="[{prop: 'id', dir: 'desc'}]" class="material expandable" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [scrollbarV]="false" [limit]="tLimit" [loadingIndicator]="loading" [messages]="tMessages">
+                <ngx-datatable-column [prop]="'id'" [name]="'ID'" [width]="1"></ngx-datatable-column>
+                <ngx-datatable-column [prop]="'name'" [name]="'Grup Adı'">
+                    <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                        <a href="#" routerLink="/customer/group/edit/{{row.id}}">
+                            {{row.name}}
+                        </a>
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column [prop]="'description'" [name]="'Açıklama'"></ngx-datatable-column>
+                <ngx-datatable-column name="İşlemler" [resizeable]="true" [sortable]="false" prop="id" [width]="5">
+                    <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                        <span class="dropdown">
+                            <a href="#" class="btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown" aria-expanded="true">
+                                <i class="la la-ellipsis-h"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-331px, 27px, 0px);">
+                                    <a class="dropdown-item" href="#" routerLink="/customer/group/edit/{{row.id}}"><i class="la la-edit"></i> düzenle</a>
+                                    <a class="dropdown-item" href="#" (click)="onDelete(row)"><i class="la la-remove"></i> sil</a>
+                                    </div>
+                                </span>
+                    </ng-template>
+                </ngx-datatable-column>
+            </ngx-datatable>
+            <!--end: Datatable -->
+        </div>
+    </div>
+
+</div>

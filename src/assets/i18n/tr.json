@@ -1,0 +1,39 @@
+{
+    "BALAMIR": {
+        "LOADING": "Lütfen bekleyiniz..."
+    },
+    "FORM": {
+        "R": "Bu alan gereklidir.",
+        "EMAIL": "Lütfen geçerli bir e-mail adresi giriniz.",
+        "PHONE": "Lütfen geçerli bir telefon giriniz.",
+        "FAX": "Lütfen geçerli bir fax giriniz",
+        "SAVE": "Kaydet",
+        "SAVE_CHANGES": "Değişiklikleri Kaydet",
+        "UPDATE": "Düzenle",
+        "CANCEL": "Vazgeç"
+    },
+    "INPUT": {
+        "SEARCH_MAP": "Konumu bul... Örn: Ankara, Türkiye"
+    },
+    "TABLE": {
+        "EMPTY": "Kayıtlı veri bulunmuyor.",
+        "TOTAL": "Toplam"
+    },
+    "TOAST": {
+        "SUCCESS": {
+            "T": "Başarılı",
+            "M": "İşleminiz başarıyla gerçekleştirildi."
+        },
+        "ERROR": {
+            "T": "Hata",
+            "M": "Bir hata oluştu, lütfen daha sonra tekrar deneyiniz.",
+            "M_SERVER": "Sunucuyla bağlantı kurulamadı.",
+            "M_R": "Lütfen gerekli alanları doldurunuz.",
+            "M_INTERNET": "Lütfen bağlantınızı kontrol ediniz."
+        },
+        "DELETE": {
+            "Y": "Evet, şimdi sil!",
+            "N": "Vazgeç"
+        }
+    }
+}
