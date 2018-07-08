@@ -23,7 +23,7 @@ import { DataFilterPipe } from '../_directives/data-filter.pipe';
             apiKey: 'AIzaSyBpc-nqt0XbiSWyNWucoE3VtWHc9YBspeI',
             libraries: ["places"],
             language: 'de'
-          })
+        })
     ],
     declarations: [
         NumbersDirective,

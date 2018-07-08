@@ -10,7 +10,7 @@ const UPPERCASE_VALUE_ACCESSOR = {
 @Directive({
     selector: 'input[uppercase]',
     providers: [UPPERCASE_VALUE_ACCESSOR],
-    host: {'(input)': 'onChange($event.target.value)', '(blur)': 'onTouched()'},
+    host: { '(input)': 'onChange($event.target.value)', '(blur)': 'onTouched()' },
 })
 export class UpperCaseDirective implements ControlValueAccessor {
     constructor(private renderer: Renderer2, private elementRef: ElementRef) {

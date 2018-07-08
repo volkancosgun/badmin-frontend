@@ -8,7 +8,7 @@ declare var google: any;
     selector: 'input[mapsearch]',
 })
 export class MapSearchDirective {
-    datas:any = [];
+    datas: any = [];
     @Output() onPlaceChange: EventEmitter<any> = new EventEmitter<any>();
     constructor(private el: ElementRef,
         private ngZone: NgZone,

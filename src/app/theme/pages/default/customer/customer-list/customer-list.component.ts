@@ -65,7 +65,7 @@ export class CustomerListComponent implements OnInit, AfterViewInit {
 
     groupList() {
         Helpers.setLoading(true);
-        this.customerService.groupList().subscribe((data:CustomerGroup[]) => {
+        this.customerService.groupList().subscribe((data: CustomerGroup[]) => {
             this.groups = data;
             Helpers.setLoading(false);
         }, err => {

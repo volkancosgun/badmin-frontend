@@ -10,7 +10,7 @@ const UPPERCASE_VALUE_ACCESSOR = {
 @Directive({
     selector: 'input[capitalize]',
     providers: [UPPERCASE_VALUE_ACCESSOR],
-    host: {'(input)': 'onChange($event.target.value)', '(blur)': 'onTouched()'},
+    host: { '(input)': 'onChange($event.target.value)', '(blur)': 'onTouched()' },
 })
 export class CapitalizeDirective implements ControlValueAccessor {
     constructor(private renderer: Renderer2, private elementRef: ElementRef) {
@@ -28,7 +28,7 @@ export class CapitalizeDirective implements ControlValueAccessor {
         // Write back to model
         if (value) {
             value = value.toUpperCase();
-            value = value.replace(/\w\S*/g, function (txt) {
+            value = value.replace(/\w\S*/g, function(txt) {
                 return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
 
             });
@@ -40,7 +40,7 @@ export class CapitalizeDirective implements ControlValueAccessor {
 
     writeValue(value: any): void {
         if (!value) return value;
-        const normalizedValue = value.replace(/\w\S*/g, function (txt) {
+        const normalizedValue = value.replace(/\w\S*/g, function(txt) {
             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
 
         });

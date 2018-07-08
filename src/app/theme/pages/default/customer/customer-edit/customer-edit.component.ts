@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-customer-edit',
-  template: `
+    selector: 'app-customer-edit',
+    template: `
     <p>
       customer-edit works!
     </p>
   `,
-  styles: []
+    styles: []
 })
 export class CustomerEditComponent implements OnInit {
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }
