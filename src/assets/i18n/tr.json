@@ -33,7 +33,17 @@
         },
         "DELETE": {
             "Y": "Evet, şimdi sil!",
-            "N": "Vazgeç"
+            "N": "Vazgeç",
+            "M": "Silmek istediğinize emin misiniz?"
         }
+    },
+    "LOCATION_TYPES": {
+        "BUSINESS": "İŞYERİ",
+        "HOME": "EV",
+        "BILLING": "FATURA",
+        "SHIPPING": "TESLİMAT",
+        "CONTRACT": "SÖZLEŞME",
+        "RECIPIENT": "İADE",
+        "OTHER": "DİĞER"
     }
 }

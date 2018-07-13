@@ -14,6 +14,7 @@ export class ConfirmService {
     toastErrorM: String;
     toastDeleteY: String;
     toastDeleteN: String;
+    toastDeleteM: String;
     private subject = new Subject<any>();
     constructor(
         private translate: TranslateService,
@@ -29,6 +30,7 @@ export class ConfirmService {
 
             this.toastDeleteY = values.TOAST.DELETE.Y;
             this.toastDeleteN = values.TOAST.DELETE.N;
+            this.toastDeleteM = values.TOAST.DELETE.M;
         });
     }
 
@@ -40,10 +42,10 @@ export class ConfirmService {
         return this.toastr.error(`${msg || this.toastErrorM}`, `${this.toastErrorT}`);
     }
 
-    deleteConfirm(title: string, message: string) {
+    deleteConfirm(title: string, message?: string) {
         return swal({
             title: title,
-            text: message,
+            text: `${message || this.toastDeleteM}`,
             type: 'question',
             confirmButtonText: `${this.toastDeleteY}`,
             confirmButtonColor: '#4cae4c',

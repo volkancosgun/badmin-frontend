@@ -1,0 +1,48 @@
+<div class="m-subheader">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title m-subheader__title--separator">
+                <a href="#" routerLink="/customer/detail/{{item?.id}}"> {{item?.name}} {{item?.sur_name}}</a> için adres düzenle
+            </h3>
+            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                <!-- <li class="m-nav__item m-nav__item--home">
+                        <a href="#" routerLink="/customer/group/create" class="m-nav__link m-nav__link--icon">
+                            <i class="m-nav__link-icon la la-location-arrow"></i>
+                        </a>
+                    </li> -->
+
+                <!-- <li class="m-nav__separator">
+                        >
+                    </li>
+    
+                    <li class="m-nav__item">
+                        <span class="m-nav__link-text">Yeni müşteri grubu oluşturun.</span>
+                    </li> -->
+
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content">
+    <!--begin::Portlet-->
+    <div class="m-portlet">
+        <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+                <div class="m-portlet__head-title">
+                    <span class="m-portlet__head-icon">
+                            <i class="la la-edit"></i>
+                        </span>
+                    <h3 class="m-portlet__head-text">
+                        Müşteri adresi düzenle
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <!--begin::Form-->
+        <app-customer-location-form [pid]="product_id" [ftype]="'update'" (onLocationSubmit)="onSubmit($event)"></app-customer-location-form>
+        <!--end::Form-->
+    </div>
+    <!--end::Portlet-->
+</div>
+<!-- END: Content -->

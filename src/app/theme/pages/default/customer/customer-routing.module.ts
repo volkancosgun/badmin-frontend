@@ -7,6 +7,8 @@ import { CustomerGroupCreateComponent } from './customer-group-create/customer-g
 import { CustomerGroupListComponent } from './customer-group-list/customer-group-list.component';
 import { CustomerGroupEditComponent } from './customer-group-edit/customer-group-edit.component';
 import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
+import { CustomerLocationCreateComponent } from './customer-location-create/customer-location-create.component';
+import { CustomerLocationEditComponent } from './customer-location-edit/customer-location-edit.component';
 
 const routes: Routes = [
     {
@@ -36,6 +38,14 @@ const routes: Routes = [
             {
                 path: 'group/edit/:id',
                 component: CustomerGroupEditComponent
+            },
+            {
+                path: 'location/create/:id',
+                component: CustomerLocationCreateComponent
+            },
+            {
+                path: 'location/edit/:id',
+                component: CustomerLocationEditComponent
             }
         ]
     }

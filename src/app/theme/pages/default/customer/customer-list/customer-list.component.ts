@@ -49,14 +49,17 @@ export class CustomerListComponent implements OnInit, AfterViewInit {
 
     onLoad() {
         this.loading = true;
+        Helpers.setLoading(true);
         this.customerService.list().subscribe((data: CustomerModel[]) => {
 
             this.temp = [...data];
             this.items = data;
             this.loading = false;
+            Helpers.setLoading(false);
 
         }, err => {
             this.loading = false;
+            Helpers.setLoading(false);
             console.log(err);
         });
 
@@ -64,12 +67,9 @@ export class CustomerListComponent implements OnInit, AfterViewInit {
     }
 
     groupList() {
-        Helpers.setLoading(true);
         this.customerService.groupList().subscribe((data: CustomerGroup[]) => {
             this.groups = data;
-            Helpers.setLoading(false);
         }, err => {
-            Helpers.setLoading(false);
             console.log(err);
         });
     }

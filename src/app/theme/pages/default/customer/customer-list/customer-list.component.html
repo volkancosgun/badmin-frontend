@@ -152,7 +152,7 @@
             </div>
             <!--end: Search Form -->
             <!--begin: Datatable -->
-            <ngx-datatable [rows]="items | dataFilter: {group_id: selectedGroup} | dataFilter: { customer_number: filterQ, name: filterQ, sur_name: filterQ, phone: filterQ }" [columnMode]="'force'" [sorts]="[{prop: 'id', dir: 'desc'}]" class="material striped responsive"
+            <ngx-datatable [rows]="items | dataFilter: {group_id: selectedGroup} | dataFilter: { customer_number: filterQ, name: filterQ, sur_name: filterQ, phone: filterQ }" [columnMode]="'force'" [sorts]="[{prop: 'id', dir: 'desc'}]" class="material responsive"
                 [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [scrollbarV]="false" [limit]="tLimit" [loadingIndicator]="loading" [messages]="tMessages">
                 <!-- <ngx-datatable-column [prop]="'id'" [name]="'ID'"></ngx-datatable-column> -->
                 <ngx-datatable-column [prop]="'customer_number'" [name]="'M.N.'">

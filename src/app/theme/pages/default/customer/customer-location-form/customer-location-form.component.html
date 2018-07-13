@@ -1,0 +1,113 @@
+<form [formGroup]="form" (submit)="onSubmit()" class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed">
+    <div class="form-group m-form__group row">
+        <label class="col-2 col-form-label">
+                        Adres Tipi:   
+                        </label>
+        <div class="col-2">
+            <label class="m-radio m-radio--solid text-danger">
+                        <input type="radio" formControlName="l_type" checked value="BUSINESS">
+                        {{'LOCATION_TYPES.BUSINESS' | translate}}
+                        <span></span>
+                    </label><br>
+            <label class="m-radio m-radio--solid text-danger">
+                                <input type="radio" formControlName="l_type" value="HOME">
+                                {{'LOCATION_TYPES.HOME' | translate}}
+                                <span></span>
+                            </label><br>
+            <label class="m-radio m-radio--solid text-danger">
+                                <input type="radio" formControlName="l_type" value="BILLING">
+                                {{'LOCATION_TYPES.BILLING' | translate}}
+                                <span></span>
+                            </label><br>
+        </div>
+        <div class="col-2">
+            <label class="m-radio m-radio--solid text-danger">
+                        <input type="radio" formControlName="l_type" checked value="SHIPPING">
+                        {{'LOCATION_TYPES.SHIPPING' | translate}}
+                        <span></span>
+                    </label><br>
+            <label class="m-radio m-radio--solid text-danger">
+                        <input type="radio" formControlName="l_type" checked value="CONTRACT">
+                        {{'LOCATION_TYPES.CONTRACT' | translate}}
+                        <span></span>
+                    </label><br>
+            <label class="m-radio m-radio--solid text-danger">
+                        <input type="radio" formControlName="l_type" checked value="RECIPIENT">
+                        {{'LOCATION_TYPES.RECIPIENT' | translate}}
+                        <span></span>
+                    </label><br>
+        </div>
+        <div class="col-2">
+            <label class="m-radio m-radio--solid text-danger">
+                        <input type="radio" formControlName="l_type" checked value="OTHER">
+                        {{'LOCATION_TYPES.OTHER' | translate}}
+                        <span></span>
+                    </label>
+        </div>
+    </div>
+
+    <div class="form-group m-form__group row">
+        <label class="col-2 col-form-label">Konum Bul</label>
+        <div class="col-8">
+            <input placeholder="{{'INPUT.SEARCH_MAP' | translate}}" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control m-input" (onPlaceChange)="placeChanged($event)" mapsearch>
+            <span class="m-form__help"><span class="text-danger">NOT:</span> Yalnızca adresi değiştirmek gerektiğinde kullanınız.</span>
+        </div>
+    </div>
+    <div class="form-group m-form__group row">
+        <label class="col-2 col-form-label">
+                Adres
+            </label>
+        <div class="col-8">
+            <input formControlName="l_address" class="form-control m-input" type="text">
+        </div>
+    </div>
+    <div class="form-group m-form__group row">
+        <label class="col-2 col-form-label">
+                    
+                </label>
+        <div class="col-4">
+            <input formControlName="l_country" class="form-control m-input" type="text">
+            <span class="m-form__help">Ülke</span>
+        </div>
+        <div class="col-4">
+            <input formControlName="l_city" class="form-control m-input" type="text">
+            <span class="m-form__help">Şehir</span>
+        </div>
+    </div>
+    <div class="form-group m-form__group row">
+        <label class="col-2 col-form-label">
+                        
+                    </label>
+        <div class="col-4">
+            <input formControlName="l_locality" class="form-control m-input" type="text">
+            <span class="m-form__help">Eyalet</span>
+        </div>
+        <div class="col-4">
+            <input formControlName="l_postal_code" class="form-control m-input" type="text">
+            <span class="m-form__help">Posta Kodu</span>
+        </div>
+    </div>
+    <div class="form-group m-form__group row">
+        <label class="col-2 col-form-label"></label>
+        <div class="col-4">
+            <input formControlName="l_street_number" class="form-control m-input" type="text">
+            <span class="m-form__help">Sokak/Cadde numarası</span>
+        </div>
+    </div>
+    <div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">
+        <div class="m-form__actions m-form__actions--solid">
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-6">
+                    <button [disabled]="loading || form.invalid" type="submit" class="btn btn-brand">
+                        <span *ngIf="!ftype || ftype == 'add'">{{'FORM.SAVE' | translate}}</span>
+                        <span *ngIf="ftype == 'update'">{{'FORM.UPDATE' | translate}}</span>
+                    </button>
+                    <a href="#" routerLink="/customer/detail/{{pid}}" class="btn btn-secondary">
+                        {{'FORM.CANCEL' | translate}}
+                        </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

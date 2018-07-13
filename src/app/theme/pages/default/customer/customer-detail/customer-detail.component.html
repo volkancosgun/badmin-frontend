@@ -73,7 +73,7 @@
 <!-- END: Subheader -->
 <div class="m-content">
     <div class="row">
-        <div class="col-xl-3 col-lg-4">
+        <div class="col-xl-4 col-lg-5">
             <div class="m-portlet m-portlet--full-height">
                 <div class="m-portlet__body">
                     <div class="m-card-profile">
@@ -166,7 +166,7 @@
                         </li>
                     </ul>
                     <div class="m-portlet__body-separator"></div>
-                    <div class="m-widget1 m-widget1--paddingless">
+                    <!-- <div class="m-widget1 m-widget1--paddingless">
                         <div class="m-widget1__item">
                             <div class="row m-row--no-padding align-items-center">
                                 <div class="col">
@@ -191,7 +191,7 @@
                                         Telefon
                                     </h3>
                                     <span class="m-widget1__desc">
-                                                Mobil
+                                        {{item?.phone_mobil || '-'}}
                                             </span>
                                 </div>
                                 <div class="col m--align-right">
@@ -218,11 +218,11 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
-        <div class="col-xl-9 col-lg-8">
+        <div class="col-xl-8 col-lg-7">
             <div class="m-portlet m-portlet--full-height m-portlet--tabs">
                 <div class="m-portlet__head">
                     <div class="m-portlet__head-tools">
@@ -315,8 +315,9 @@
                         <form [formGroup]="form" (submit)="onSubmit()" class="m-form m-form--fit m-form--label-align-right">
                             <div class="m-portlet__body">
                                 <div class="form-group m-form__group m--margin-top-10 m--hide">
+                                    <!-- m--hide -->
                                     <div class="alert m-alert m-alert--default" role="alert">
-                                        The example form below demonstrates common HTML form elements that receive updated styles from Bootstrap with additional classes.
+                                        {{form.value | json}}
                                     </div>
                                 </div>
                                 <div class="form-group m-form__group row">
@@ -343,18 +344,29 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="form-group m-form__group row">
+                                    <label class="col-2 col-form-label"></label>
+                                    <div class="col-4">
+                                        <input type="text" formControlName="business_name" class="form-control text-info m-input" uppercase />
+                                        <span class="m-form__help">Firma Adı / Ünvanı</span>
+                                    </div>
+                                    <div class="col-4">
+                                        <input type="text" formControlName="business_manager" class="form-control text-info m-input" capitalize />
+                                        <span class="m-form__help">Firma Yetkilisi</span>
+                                    </div>
+                                </div>
                                 <div class="form-group m-form__group row" [ngClass]="{'has-danger': form.controls.name.invalid && form.controls.name.touched || form.controls.sur_name.invalid && form.controls.sur_name.touched}">
-                                    <label class="col-2 col-form-label">
-                                            Adı, Soyadı
-                                        </label>
+                                    <label class="col-2 col-form-label"></label>
                                     <div class="col-4">
                                         <input formControlName="name" class="form-control m-input" type="text" capitalize>
+                                        <span class="m-form__help">Müşteri Adı</span>
                                         <div class="form-control-feedback" *ngIf="form.controls.name.invalid && form.controls.name.touched">
                                             {{'FORM.R' | translate }}
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <input formControlName="sur_name" class="form-control m-input" type="text" uppercase>
+                                        <span class="m-form__help">Müşteri Soyadı</span>
                                         <div class="form-control-feedback" *ngIf="form.controls.sur_name.invalid && form.controls.sur_name.touched">
                                             {{'FORM.R' | translate}}
                                         </div>
@@ -373,17 +385,19 @@
                                 </div>
                                 <div class="form-group m-form__group row" [ngClass]="{'has-danger':!errorPhone && form.controls.phone.touched && form.controls.phone.value || !errorPhoneMobil && form.controls.phone_mobil.touched && form.controls.phone_mobil.value}">
                                     <label class="col-2 col-form-label">
-                                            Telefon
+                                            
                                         </label>
                                     <div class="col-4">
-                                        <input ng2TelInput formControlName="phone" class="form-control m-input" [ng2TelInputOptions]="{initialCountry: 'de'}" (hasError)="hasErrorPhone($event)" (ng2TelOutput)="getNumberPhone($event)" />
+                                        <input ng2TelInput formControlName="phone" class="form-control m-input" [ng2TelInputOptions]="{initialCountry: 'de'}" (hasError)="hasErrorPhone($event)" (ng2TelOutput)="getNumberPhone($event)" (countryChange)="changeLangPhone($event)" (intlTelInputObject)="telInputObjectPhone($event)"
+                                        />
                                         <span class="m-form__help">Sabit telefon numarası</span>
                                         <div class="form-control-feedback" *ngIf="!errorPhone && form.controls.phone.touched && form.controls.phone.value">
                                             {{'FORM.PHONE' | translate}}
                                         </div>
                                     </div>
                                     <div class="col-4">
-                                        <input ng2TelInput formControlName="phone_mobil" class="form-control m-input" [ng2TelInputOptions]="{initialCountry: 'de'}" (hasError)="hasErrorPhoneMobil($event)" (ng2TelOutput)="getNumberPhoneMobil($event)" />
+                                        <input ng2TelInput formControlName="phone_mobil" class="form-control m-input" [ng2TelInputOptions]="{initialCountry: 'de'}" (hasError)="hasErrorPhoneMobil($event)" (ng2TelOutput)="getNumberPhoneMobil($event)" (countryChange)="changeLangPhoneMobil($event)"
+                                            (intlTelInputObject)="telInputObjectPhoneMobil($event)" />
                                         <span class="m-form__help">Cep telefon numarası</span>
                                         <div class="form-control-feedback" *ngIf="!errorPhoneMobil && form.controls.phone_mobil.touched && form.controls.phone_mobil.value">
                                             {{'FORM.PHONE' | translate}}
@@ -392,14 +406,45 @@
                                 </div>
                                 <div class="form-group m-form__group row" [ngClass]="{'has-danger':!errorFax && form.controls.fax.touched && form.controls.fax.value}">
                                     <label class="col-2 col-form-label">
-                                                Fax
+                                                
                                             </label>
                                     <div class="col-4">
-                                        <input ng2TelInput formControlName="fax" class="form-control m-input" [ng2TelInputOptions]="{initialCountry: 'de'}" (hasError)="hasErrorFax($event)" (ng2TelOutput)="getNumberFax($event)" />
+                                        <input ng2TelInput formControlName="fax" class="form-control m-input" [ng2TelInputOptions]="{initialCountry: 'de'}" (hasError)="hasErrorFax($event)" (ng2TelOutput)="getNumberFax($event)" (countryChange)="changeLangFax($event)" (intlTelInputObject)="telInputObjectFax($event)"
+                                        />
                                         <span class="m-form__help">Fax numarası</span>
                                         <div class="form-control-feedback" *ngIf="!errorFax && form.controls.fax.touched && form.controls.fax.value">
                                             {{'FORM.FAX' | translate}}
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <label class="col-2 col-form-label">
+                                            IBAN
+                                        </label>
+                                    <div class="col-8">
+                                        <input formControlName="iban" class="form-control m-input" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <div class="col-2 col-form-label"></div>
+                                    <div class="col-4">
+                                        <input type="text" formControlName="bic" class="form-control m-input" />
+                                        <span class="m-form__help">BIC Numarası</span>
+                                    </div>
+                                    <div class="col-4">
+                                        <input type="text" formControlName="sepa" class="form-control m-input" />
+                                        <span class="m-form__help">SEPA Numarası</span>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <div class="col-2 col-form-label"></div>
+                                    <div class="col-4">
+                                        <input type="text" formControlName="tax" class="form-control m-input" />
+                                        <span class="m-form__help">Kdv Vergi Numarası</span>
+                                    </div>
+                                    <div class="col-4">
+                                        <input type="text" formControlName="tax_number" class="form-control m-input" />
+                                        <span class="m-form__help">Vergi Numarası</span>
                                     </div>
                                 </div>
                                 <div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x"></div>
@@ -410,7 +455,70 @@
                                         </h3>
                                     </div>
                                 </div>
-                                <div class="form-group m-form__group row">
+                                <div class="row">
+                                    <div class="col-2"></div>
+                                    <div class="col-9">
+                                        <div class="m-widget4">
+                                            <div class="m-widget4__item" *ngIf="!item?.locations?.length">
+                                                <div class="m-widget4__info">
+                                                    <span class="text-danger">Kayıtlı adres bulunmuyor.</span>
+                                                </div>
+                                            </div>
+                                            <div *ngIf="item?.locations?.length > 0">
+                                                <div class="m-widget4__item" *ngFor="let location of item?.locations">
+                                                    <div class="m-widget4__info">
+                                                        <span class="m-widget4__title" *ngIf="location.location_type =='BUSINESS'">
+                                                            {{'LOCATION_TYPES.BUSINESS' | translate}}
+                                                        </span>
+                                                        <span class="m-widget4__title" *ngIf="location.location_type =='HOME'">
+                                                                {{'LOCATION_TYPES.HOME' | translate}}
+                                                        </span>
+                                                        <span class="m-widget4__title" *ngIf="location.location_type =='BILLING'">
+                                                                {{'LOCATION_TYPES.BILLING' | translate}}
+                                                        </span>
+                                                        <span class="m-widget4__title" *ngIf="location.location_type =='SHIPPING'">
+                                                                {{'LOCATION_TYPES.SHIPPING' | translate}}
+                                                        </span>
+                                                        <span class="m-widget4__title" *ngIf="location.location_type =='CONTRACT'">
+                                                                {{'LOCATION_TYPES.CONTRACT' | translate}}
+                                                        </span>
+                                                        <span class="m-widget4__title" *ngIf="location.location_type =='RECIPIENT'">
+                                                                {{'LOCATION_TYPES.RECIPIENT' | translate}}
+                                                        </span>
+                                                        <span class="m-widget4__title" *ngIf="location.location_type =='OTHER'">
+                                                                {{'LOCATION_TYPES.OTHER' | translate}}
+                                                        </span>
+                                                        <br>
+                                                        <span class="m-widget4__sub">
+                                                        {{location.address}}
+                                                    </span>
+                                                    </div>
+                                                    <div class="m-widget4__ext">
+                                                        <a routerLink="/customer/location/edit/{{location.id}}" class="m-btn m-btn--hover-brand m-btn--pill btn btn-sm btn-secondary">
+                                                            <i class="fa fa-edit"></i>
+                                                        </a>
+
+                                                    </div>
+                                                    <div class="m-widget4__ext">&nbsp;</div>
+                                                    <div class="m-widget4__ext">
+                                                        <a (click)="onDeleteLocation(location)" class="m-btn m-btn--hover-brand m-btn--pill btn btn-sm btn-secondary">
+                                                            <i class="fa fa-remove"></i>
+                                                        </a>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row col-10 ml-auto">
+                                    <a routerLink="/customer/location/create/{{item?.id}}" class="m-btn m-btn--hover-brand m-btn--pill btn btn-sm btn-success">
+                                        <i class="fa fa-plus"></i> Yeni adres ekle
+                                    </a>
+                                </div>
+
+                                <!--  <div class="form-group m-form__group row">
                                     <label class="col-2 col-form-label">Konum Bul</label>
                                     <div class="col-8">
                                         <input placeholder="{{'INPUT.SEARCH_MAP' | translate}}" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control m-input" (onPlaceChange)="placeChanged($event)" mapsearch>
@@ -457,7 +565,7 @@
                                         <input formControlName="adr_postal_code" class="form-control m-input" type="text">
                                         <span class="m-form__help">Sokak/Cadde numarası</span>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="m-portlet__foot m-portlet__foot--fit">
                                 <div class="m-form__actions">

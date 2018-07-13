@@ -30,23 +30,38 @@ export class CustomerCreateComponent implements OnInit {
 
     ngOnInit() {
         this.form = this.fb.group({
+            // Customer
             group_id: [1, [Validators.required]],
+            business_name: [null],
+            business_manager: [null],
             name: [null, [Validators.required]],
             sur_name: [null, Validators.required],
+            description: [null],
             email: [null, [Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
             phone: [null],
+            phone_lang: ['de'],
             phone_mobil: [null],
+            phone_mobil_lang: ['de'],
             fax: [null],
-            adr_address: [null],
-            adr_country: [null],
-            adr_city: [null],
-            adr_lat: [null],
-            adr_lng: [null],
-            adr_locality: [null],
-            adr_place_id: [null],
-            adr_postal_code: [null],
-            adr_route: [null],
-            adr_street_number: [null]
+            fax_lang: ['de'],
+            tax: [null],
+            tax_number: [null],
+            iban:[null],
+            bic: [null],
+            sepa: [null],
+            // Customer Location
+            l_type: ['BUSINESS'],
+            l_description: [null],
+            l_address: [null],
+            l_country: [null],
+            l_city: [null],
+            l_lat: [null],
+            l_lng: [null],
+            l_locality: [null],
+            l_place_id: [null],
+            l_postal_code: [null],
+            l_route: [null],
+            l_street_number: [null]
         });
 
 
@@ -67,16 +82,16 @@ export class CustomerCreateComponent implements OnInit {
 
     initFormPlaces(p) {
         this.form.patchValue({
-            adr_address: p.address,
-            adr_country: p.country,
-            adr_city: p.locality,
-            adr_lat: p.lat,
-            adr_lng: p.lng,
-            adr_locality: p.city,
-            adr_place_id: p.place_id,
-            adr_postal_code: p.postal_code,
-            adr_route: p.route,
-            adr_street_number: p.street_number
+            l_address: p.address,
+            l_country: p.country,
+            l_city: p.locality,
+            l_lat: p.lat,
+            l_lng: p.lng,
+            l_locality: p.city,
+            l_place_id: p.place_id,
+            l_postal_code: p.postal_code,
+            l_route: p.route,
+            l_street_number: p.street_number
         });
     }
 
@@ -147,7 +162,7 @@ export class CustomerCreateComponent implements OnInit {
         Helpers.setLoading(false);
         this.loading = false;
 
-        if (data === true) {
+        if (data.status === true) {
             this.confirmService.onSuccess();
             this.router.navigate(['customer/list']);
         }
@@ -169,12 +184,24 @@ export class CustomerCreateComponent implements OnInit {
         this.form.patchValue({ phone: value });
     }
 
+    changeLangPhone(value) {
+        this.form.patchValue({ phone_lang: value.iso2 });
+    }
+
     getNumberPhoneMobil(value) {
         this.form.patchValue({ phone_mobil: value });
     }
 
+    changeLangPhoneMobil(value) {
+        this.form.patchValue({ phone_mobil_lang: value.iso2 });
+    }
+
     getNumberFax(value) {
         this.form.patchValue({ fax: value });
+    }
+
+    changeLangFax(value) {
+        this.form.patchValue({ fax_lang: value.iso2 });
     }
 
     telInputObject(obj) {

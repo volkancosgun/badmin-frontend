@@ -16,6 +16,9 @@ import { SharedModule } from '../../../../shared/shared.module';
 import { CustomerGroupEditComponent } from './customer-group-edit/customer-group-edit.component';
 import { CustomerEditComponent } from './customer-edit/customer-edit.component';
 import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
+import { CustomerLocationFormComponent } from './customer-location-form/customer-location-form.component';
+import { CustomerLocationCreateComponent } from './customer-location-create/customer-location-create.component';
+import { CustomerLocationEditComponent } from './customer-location-edit/customer-location-edit.component';
 
 @NgModule({
     imports: [
@@ -34,7 +37,7 @@ import { CustomerDetailComponent } from './customer-detail/customer-detail.compo
         CustomerListComponent,
         CustomerCreateComponent,
         CustomerGroupCreateComponent,
-        CustomerGroupListComponent, CustomerGroupEditComponent, CustomerEditComponent, CustomerDetailComponent
+        CustomerGroupListComponent, CustomerGroupEditComponent, CustomerEditComponent, CustomerDetailComponent, CustomerLocationFormComponent, CustomerLocationCreateComponent, CustomerLocationEditComponent
     ]
 })
 export class CustomerModule { }

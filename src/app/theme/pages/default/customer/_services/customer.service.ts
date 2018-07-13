@@ -54,5 +54,23 @@ export class CustomerService {
         return this.http.get(`${balamir.API_URL}/customer/group/${pid}`);
     }
 
+    locationGetById(pid) {
+        return this.http.get(`${balamir.API_URL}/customer/location/${pid}`);
+    }
+
+    locationCreate(data, pid) {
+        return this.http.post(`${balamir.API_URL}/customer/location/create/${pid}`, data);
+    }
+
+    locationEdit(data, pid) {
+        return this.http.post(`${balamir.API_URL}/customer/location/update/${pid}`, data);
+    }
+
+    locationDelete(pid) {
+        return this.http.get(`${balamir.API_URL}/customer/location/delete/${pid}`);
+    }
+
+
+
 
 }
